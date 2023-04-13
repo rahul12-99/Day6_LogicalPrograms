@@ -4,33 +4,35 @@ import java.util.Scanner;
 
 public class LogicalPrograms {
     /*
-     * Method for printing the fibonacci series .
+     * Method for check the number is perfect or not
      * @param args
      */
     public static void main(String[] args) {
-
         /*
-         * 1) Taking user input for n term for fibonacci series
-         * 2) Initializing the variable n1,n2,n3
-         * 3) taking for loop for n terms and printing the terms
-         * 4) Initializing the value in variable n1,n2,n3
+         * 1) Taking user input and variables
+         * 2) Taking for loop to get the factor of entered number
+         * 3) check the factor and adding in the sum variable
+         * 4) check if the sum of factor of entered number and entered number
+         * is equal or not and printing
          */
-
-        // 1) Taking user input for n term for fibonacci series
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the term for fibonacci series");
-        int nTerm = scanner.nextInt();
-        // 2) Initializing the variable n1,n2,n3
-        int n1 = 0;
-        int n2 = 1;
-        int n3;
-        // 3) taking for loop for n terms and printing the terms
-        for (int i = 1; i <= nTerm; i++){
-            System.out.print(n1 +" ");
-            // 4) Initializing the value in variable n1,n2,n3
-            n3 = n1 + n2;
-            n1 = n2;
-            n2 = n3;
+        //  1) Taking user input and variables
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number");
+        int n = sc.nextInt();
+        int sum = 0;
+        // 2) Taking for loop to get the factor of entered number
+        for (int i = 1; i < n; i++) {
+            // 3) check the factor and adding in the sum variable
+            if(n % i ==0){
+                sum = sum+i;
+            }
+        }
+        // 4) check if the sum of factor of entered number and entered number
+        //    is equal or not and printing
+        if(sum == n){
+            System.out.println(n + " is perfect number");
+        }else {
+            System.out.println(n + " is not a perfect number");
         }
     }
 }
