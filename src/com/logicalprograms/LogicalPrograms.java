@@ -4,33 +4,58 @@ import java.util.Scanner;
 
 public class LogicalPrograms {
     /**
-     * Main method is for reverse the number
-     *
-     * @param args
+     * This method is for return random coupon number;
+     * @param number
+     * @return
      */
 
+    public static int CouponGenerator(int number){
+        return (int) Math.floor(Math.random() * number)+ 1;
+    }
+
+    /**
+     * Main method of the program
+     * @param args
+     */
     public static void main(String[] args) {
         /*
-         * 1) Initialized the variable and taking user input
-         * 2) Putting the condition and storing the reminder and printing
+         * 1) Taking user input and initialized the variable
+         * 2) Taking an array store the user input in array
+         * 3) Store the random number by calling and add random number in array
+         * 4) taking loop to be on same index until unique number
+         * 5) taking for loop and storing the coupon number and printing
          */
-
         /*
-         1) Initialized the variable and taking user input
+          1) Taking user input and initialized the variable
          */
-        int num, reminder;
+        int number,random;
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the number you want reverse");
-        num = sc.nextInt();
-
+        System.out.println("Kindly enter the total number of coupons to generate");
+        number = sc.nextInt();
         /*
-         2) Putting the condition and storing the reminder and printing
+         2) Taking an array store the user input in array
          */
-        System.out.println("After reverse the number");
-        while (num > 0) {
-            reminder = num % 10;
-            System.out.print(reminder);
-            num = num / 10;
+        int[] coupons = new int[number];
+        /*
+         3) Store the random number by calling and add random number in array
+         */
+        for (int i = 0; i < number; i++) {
+            random = CouponGenerator(number);
+            coupons[i] = random;
+            /*
+             4) taking loop to be on same index until unique number
+             */
+            for (int j = 0; j < i; j++) {
+                if (coupons[i] == coupons[j]) {
+                    i--;
+                }
+            }
+        }
+        /*
+         5) taking for loop and storing the coupon number and printing
+         */
+        for (int i:coupons) {
+            System.out.println(i);
         }
     }
 }
