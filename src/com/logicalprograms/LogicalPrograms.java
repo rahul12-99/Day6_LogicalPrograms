@@ -1,61 +1,55 @@
 package com.logicalprograms;
 
+import java.time.LocalTime;
 import java.util.Scanner;
 
 public class LogicalPrograms {
     /**
-     * This method is for return random coupon number;
-     * @param number
-     * @return
-     */
-
-    public static int CouponGenerator(int number){
-        return (int) Math.floor(Math.random() * number)+ 1;
-    }
-
-    /**
-     * Main method of the program
+     * Main method is for simulate stopwatch program
      * @param args
      */
+
     public static void main(String[] args) {
         /*
-         * 1) Taking user input and initialized the variable
-         * 2) Taking an array store the user input in array
-         * 3) Store the random number by calling and add random number in array
-         * 4) taking loop to be on same index until unique number
-         * 5) taking for loop and storing the coupon number and printing
+         * 1) initialize the variable and taking user input for start the current time
+         * 2) printing the start time of stopwatch
+         * 3) taking user input for end the current time
+         * 4) printing the ending time of stopwatch
+         * 5) printing the stopwatch time duration
          */
         /*
-          1) Taking user input and initialized the variable
+         1) initialize the variable and taking user input for start the current time
          */
-        int number,random;
+        long start, end;
+        double stopWatchTime;
         Scanner sc = new Scanner(System.in);
-        System.out.println("Kindly enter the total number of coupons to generate");
-        number = sc.nextInt();
+        System.out.println("Please enter s to start");
+        char s = sc.next().charAt(0);
+        start = System.currentTimeMillis();
+
         /*
-         2) Taking an array store the user input in array
+         2) printing the start time of stopwatch
          */
-        int[] coupons = new int[number];
+        LocalTime starts = LocalTime.now();
+        System.out.println("Start Time : " + starts);
+
         /*
-         3) Store the random number by calling and add random number in array
+         3) taking user input for end the current time
          */
-        for (int i = 0; i < number; i++) {
-            random = CouponGenerator(number);
-            coupons[i] = random;
-            /*
-             4) taking loop to be on same index until unique number
-             */
-            for (int j = 0; j < i; j++) {
-                if (coupons[i] == coupons[j]) {
-                    i--;
-                }
-            }
-        }
+        System.out.println("Please enter p to stop");
+        char p = sc.next().charAt(0);
+        end = System.currentTimeMillis();
+
         /*
-         5) taking for loop and storing the coupon number and printing
+         4) printing the ending time of stopwatch
          */
-        for (int i:coupons) {
-            System.out.println(i);
-        }
+        LocalTime ends = LocalTime.now();
+        System.out.println("Stop Time : " + ends);
+
+        /*
+         5) printing the stopwatch time duration
+         */
+        stopWatchTime = (end - start) / 1000.0;
+        System.out.println("Duration is : " + stopWatchTime);
     }
 }
