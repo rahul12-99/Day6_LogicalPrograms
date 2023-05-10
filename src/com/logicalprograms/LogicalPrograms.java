@@ -3,35 +3,34 @@ package com.logicalprograms;
 import java.util.Scanner;
 
 public class LogicalPrograms {
-    /*
-     * Method for check the prime number
+    /**
+     * Main method is for reverse the number
+     *
      * @param args
      */
+
     public static void main(String[] args) {
         /*
-         * 1) Get user input and initialize  variable
-         * 2) Taking a for loop and getting the factor of entered number
-         * 3) checking the factors and counting the factors
-         * 4) condition for checking prime number or not
+         * 1) Initialized the variable and taking user input
+         * 2) Putting the condition and storing the reminder and printing
          */
 
-        // 1) Get user input and initialize  variable
+        /*
+         1) Initialized the variable and taking user input
+         */
+        int num, reminder;
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the number");
-        int n = sc.nextInt();
-        int count = 0;
-        // 2) Taking a for loop and getting the factor of entered number
-        for (int i = 2; i <= n; i++){
-            // 3) checking the factors and counting the factors
-            if(n % i == 0){
-                count++;
-            }
-        }
-        // 4) condition for checking prime number or not
-        if(count >= 2){
-            System.out.println(n + " is a prime number");
-        }else {
-            System.out.println(n + " is not a prime number");
+        System.out.println("Enter the number you want reverse");
+        num = sc.nextInt();
+
+        /*
+         2) Putting the condition and storing the reminder and printing
+         */
+        System.out.println("After reverse the number");
+        while (num > 0) {
+            reminder = num % 10;
+            System.out.print(reminder);
+            num = num / 10;
         }
     }
 }
